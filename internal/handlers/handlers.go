@@ -9,7 +9,7 @@ import (
 func EmailHandler(ch chan events.Event) {
 	for event := range ch {
 		if e, ok := event.(events.CourseCreated); ok {
-			fmt.Printf("Sending email notification for course_service: %s\n", e.CourseName)
+			fmt.Printf("Sending email notification for services: %s\n", e.CourseName)
 		}
 	}
 }
@@ -18,16 +18,16 @@ func EmailHandler(ch chan events.Event) {
 func DashboardHandler(ch chan events.Event) {
 	for event := range ch {
 		if e, ok := event.(events.CourseCreated); ok {
-			fmt.Printf("Updating admin dashboard for course_service: %s\n", e.CourseName)
+			fmt.Printf("Updating admin dashboard for services: %s\n", e.CourseName)
 		}
 	}
 }
 
-// SearchIndexerHandler processes CourseCreated eventbus to index the course_service.
+// SearchIndexerHandler processes CourseCreated eventbus to index the services.
 func SearchIndexerHandler(ch chan events.Event) {
 	for event := range ch {
 		if e, ok := event.(events.CourseCreated); ok {
-			fmt.Printf("Indexing course_service in search system: %s\n", e.CourseName)
+			fmt.Printf("Indexing services in search system: %s\n", e.CourseName)
 		}
 	}
 }

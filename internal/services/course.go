@@ -1,13 +1,13 @@
-package course_service
+package services
 
 import (
 	"context"
 	"fmt"
+	"github.com/alishojaeiir/mahdaad/internal/eventbus"
 	"github.com/alishojaeiir/mahdaad/internal/events"
-	"github.com/alishojaeiir/mahdaad/pkg/eventbus"
 )
 
-// CourseService handles course_service-related business logic in the application layer.
+// CourseService handles services-related business logic in the application layer.
 type CourseService struct {
 	eventBus *eventbus.EventBus
 }
@@ -17,7 +17,7 @@ func NewCourseService(eventBus *eventbus.EventBus) *CourseService {
 	return &CourseService{eventBus: eventBus}
 }
 
-// CreateCourse handles the creation of a course_service and publishes a domain event.
+// CreateCourse handles the creation of a services and publishes a domain event.
 func (s *CourseService) CreateCourse(ctx context.Context, id, name string) error {
 	// Simulate domain logic (e.g., validation, persistence)
 	fmt.Printf("Course created: ID=%s, Name=%s\n", id, name)

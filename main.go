@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/alishojaeiir/mahdaad/internal/course_service"
+	"github.com/alishojaeiir/mahdaad/internal/eventbus"
 	"github.com/alishojaeiir/mahdaad/internal/events"
 	"github.com/alishojaeiir/mahdaad/internal/handlers"
-	"github.com/alishojaeiir/mahdaad/pkg/eventbus"
+	"github.com/alishojaeiir/mahdaad/internal/services"
 	"time"
 )
 
@@ -32,7 +32,7 @@ func main() {
 	go handlers.SearchIndexerHandler(searchCh)
 
 	// Initialize the course service
-	courseService := course_service.NewCourseService(eventBus)
+	courseService := services.NewCourseService(eventBus)
 
 	// Simulate course creation
 	err := courseService.CreateCourse(ctx, "123", "Advanced Go Programming")

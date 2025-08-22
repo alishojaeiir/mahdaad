@@ -1,6 +1,6 @@
 package events
 
-// CourseCreated is a domain event raised when a course_service is created.
+// CourseCreated is a domain event raised when a services is created.
 type CourseCreated struct {
 	CourseID   string
 	CourseName string
